@@ -29,6 +29,22 @@ public class Point {
         return Math.pow(number, 2);
     }
 
+    public boolean isOnSameCol(Point point) {
+        return point.compareX(x) && !point.compareY(y);
+    }
+
+    public boolean isOnSameRow(Point point) {
+        return !point.compareX(x) && point.compareY(y);
+    }
+
+    public boolean compareX(int x) {
+        return this.x == x;
+    }
+
+    public boolean compareY(int y) {
+        return this.y ==y;
+    }
+
     public int minusX(int value) {
         this.x -= value;
         return x;
