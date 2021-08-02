@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 
 public class CoordinateCalculator {
     public double calculate(String input) {
-        List<Point> points = makePoints(input);
-        return 0;
+        Shape shape = ShapeFactory.create(makePoints(input));
+        return shape.area();
     }
 
     private List<Point> makePoints(String input){

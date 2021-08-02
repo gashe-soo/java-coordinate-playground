@@ -15,10 +15,27 @@ public class Point {
         this.y = y;
     }
 
-    private void validateRange(int number){
-        if(number < MIN || number > MAX){
+    private void validateRange(int number) {
+        if (number < MIN || number > MAX) {
             throw new IllegalArgumentException("좌표의 값은 1이상 24이하입니다.");
         }
     }
 
+    public double distanceFrom(Point point) {
+        return Math.sqrt(square(point.minusX(x)) + square(point.minusY(y)));
+    }
+
+    private double square(int number) {
+        return Math.pow(number, 2);
+    }
+
+    public int minusX(int value) {
+        this.x -= value;
+        return x;
+    }
+
+    public int minusY(int value) {
+        this.y -= value;
+        return y;
+    }
 }
