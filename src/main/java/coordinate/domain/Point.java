@@ -49,13 +49,11 @@ public class Point {
     }
 
     public int minusX(int value) {
-        this.x -= value;
-        return x;
+        return x - value;
     }
 
     public int minusY(int value) {
-        this.y -= value;
-        return y;
+        return y - value;
     }
 
     @Override

@@ -27,22 +27,27 @@ public class CoordinateCalculatorTest {
 
     @ParameterizedTest
     @CsvSource(value = {"'(1,1)-(2,1)',1", "'(10,10)-(13,14)',5", "'(10,10)-(14,15)',6.403124"})
-    void 직선의_거리_계산(String input, double expected){
+    void 직선의_거리_계산(String input, double expected) {
         assertThat(calculator.calculate(input)).isEqualTo(expected, offset(0.00099));
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"(1,1)-(1,3)-(3,10)-(3,1)","(1,7)-(3,7)-(1,1)-(3,2)"})
-    void 직사각형이_아닐때_오류발생(String input){
-        assertThatIllegalArgumentException().isThrownBy(()->calculator.calculate(input))
+    @ValueSource(strings = {"(1,1)-(1,3)-(3,10)-(3,1)", "(1,7)-(3,7)-(1,1)-(3,2)"})
+    void 직사각형이_아닐때_오류발생(String input) {
+        assertThatIllegalArgumentException().isThrownBy(() -> calculator.calculate(input))
                 .withMessageContaining("직사각형이 아닙니다.");
     }
 
     @ParameterizedTest
-    @CsvSource(value = {"'(1,1)-(1,3)-(3,3)-(3,1)',4","'(1,7)-(3,7)-(1,2)-(3,2)',10"})
-    void 직사각형의_면적_계산(String input, double expected){
-        assertThat(calculator.calculate(input)).isEqualTo(expected,offset(0.001));
+    @CsvSource(value = {"'(1,1)-(1,3)-(3,3)-(3,1)',4", "'(1,7)-(3,7)-(1,2)-(3,2)',10"})
+    void 직사각형의_면적_계산(String input, double expected) {
+        assertThat(calculator.calculate(input)).isEqualTo(expected, offset(0.001));
     }
 
+    @ParameterizedTest
+    @CsvSource(value = {"'(1,1)-(2,10)-(7,5)',25", "'(10,10)-(14,15)-(20,8)',29"})
+    void 삼각형의_면적_계산(String input, double expected) {
+        assertThat(calculator.calculate(input)).isEqualTo(expected, offset(0.00099));
+    }
 
 }
