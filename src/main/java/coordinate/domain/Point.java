@@ -1,5 +1,7 @@
 package coordinate.domain;
 
+import java.util.Objects;
+
 public class Point {
 
     private static final int MAX = 24;
@@ -30,11 +32,12 @@ public class Point {
     }
 
     public boolean isOnSameCol(Point point) {
-        return point.compareX(x) && !point.compareY(y);
+
+        return this.equals(point) || (point.compareX(x) && !point.compareY(y));
     }
 
     public boolean isOnSameRow(Point point) {
-        return !point.compareX(x) && point.compareY(y);
+        return this.equals(point) || (!point.compareX(x) && point.compareY(y));
     }
 
     public boolean compareX(int x) {
@@ -42,7 +45,7 @@ public class Point {
     }
 
     public boolean compareY(int y) {
-        return this.y ==y;
+        return this.y == y;
     }
 
     public int minusX(int value) {
@@ -53,5 +56,18 @@ public class Point {
     public int minusY(int value) {
         this.y -= value;
         return y;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point = (Point) o;
+        return x == point.x && y == point.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }

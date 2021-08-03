@@ -17,7 +17,11 @@ public class Rectangle extends Shape {
     }
 
     private boolean isRectangle() {
-        return checkLine(points.get(0)) && checkLine(points.get(1));
+        boolean result = true;
+        for(Point point : points){
+            result &= checkLine(point);
+        }
+        return result;
     }
 
     private boolean checkLine(Point point) {
@@ -36,9 +40,15 @@ public class Rectangle extends Shape {
                 .collect(Collectors.toList());
     }
 
+    private double calculateDistance(List<Point> line) {
+        return line.get(0).distanceFrom(line.get(1));
+    }
+
     @Override
     double area() {
-        return 0;
+        double height = calculateDistance(getSameCol(points.get(0)));
+        double width = calculateDistance(getSameRow(points.get(0)));
+        return height * width;
     }
 
     @Override

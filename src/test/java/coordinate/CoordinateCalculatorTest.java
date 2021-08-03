@@ -41,7 +41,7 @@ public class CoordinateCalculatorTest {
     @ParameterizedTest
     @CsvSource(value = {"'(1,1)-(1,3)-(3,3)-(3,1)',4","'(1,7)-(3,7)-(1,2)-(3,2)',10"})
     void 직사각형의_면적_계산(String input, double expected){
-
+        assertThat(calculator.calculate(input)).isEqualTo(expected,offset(0.001));
     }
 
 
