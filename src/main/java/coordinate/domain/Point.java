@@ -43,4 +43,16 @@ public class Point {
     public double getDistanceFrom(Point point) {
         return Math.sqrt(Math.pow(x - point.x, 2) + Math.pow(y - point.y, 2));
     }
+
+    public boolean isOnSameRow(Point point) {
+        return x != point.x && y == point.y;
+    }
+
+    public boolean isOnSameCol(Point point) {
+        return x == point.x && y != point.y;
+    }
+
+    public double getTilt(Point point) {
+        return Math.abs(y - point.y) / Math.abs(x - point.x);
+    }
 }
