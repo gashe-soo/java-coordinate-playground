@@ -12,6 +12,8 @@ public class Point {
 
     public Point(int x, int y) {
         validateRange(x, y);
+        this.x = x;
+        this.y = y;
     }
 
     private void validateRange(int x, int y) {
@@ -20,7 +22,7 @@ public class Point {
     }
 
     private void checkRange(int value) {
-        if (value < MIN || value > MAX){
+        if (value < MIN || value > MAX) {
             throw new IllegalArgumentException("범위는 1이상 24이하의 자연수입니다.");
         }
     }
@@ -36,5 +38,9 @@ public class Point {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    public double getDistanceFrom(Point point) {
+        return Math.sqrt(Math.pow(x - point.x, 2) + Math.pow(y - point.y, 2));
     }
 }
