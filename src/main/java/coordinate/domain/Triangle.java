@@ -1,5 +1,6 @@
 package coordinate.domain;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class Triangle extends Shape {
@@ -34,14 +35,7 @@ public class Triangle extends Shape {
     }
 
     private boolean hasSamePoint(List<Point> points) {
-        Point p1 = points.get(0);
-        Point p2 = points.get(1);
-        Point p3 = points.get(2);
-
-        if (p1.equals(p2) || p2.equals(p3) || p3.equals(p1)) {
-            return true;
-        }
-        return false;
+        return new HashSet<>(points).size() != 3;
     }
 
     @Override
