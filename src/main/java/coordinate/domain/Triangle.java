@@ -46,11 +46,27 @@ public class Triangle extends Shape {
 
     @Override
     double area() {
-        return 0;
+        Point p1 = getPoints().get(0);
+        Point p2 = getPoints().get(1);
+        Point p3 = getPoints().get(2);
+
+        double firstSide = p1.getDistanceFrom(p2);
+        double secondSide = p2.getDistanceFrom(p3);
+        double thirdSide = p3.getDistanceFrom(p1);
+
+        return calculateByHeron(firstSide, secondSide, thirdSide);
+
+    }
+
+    private double calculateByHeron(double firstSide, double secondSide, double thirdSide) {
+        double s = (firstSide + secondSide + thirdSide) / 2;
+
+        return Math.sqrt(s * (s - firstSide) * (s - secondSide) * (s - thirdSide));
+
     }
 
     @Override
     String getInfo() {
-        return null;
+        return "삼각형의 넓이는 " + area();
     }
 }
