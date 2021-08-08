@@ -35,8 +35,22 @@ public class Rectangle extends Shape {
 
     @Override
     double area() {
-        return 0;
+        Point p1 = getPoints().get(0);
+        double height = getHeight(p1);
+        double width = getWidth(p1);
+        return height * width;
     }
+
+    private double getWidth(Point point) {
+        Point sameRowPoint = getPoints().stream().filter(p -> p.isOnSameRow(point)).findFirst().get();
+        return point.getDistanceFrom(sameRowPoint);
+    }
+
+    private double getHeight(Point point) {
+        Point sameColPoint = getPoints().stream().filter(p -> p.isOnSameCol(point)).findFirst().get();
+        return point.getDistanceFrom(sameColPoint);
+    }
+
 
     @Override
     String getInfo() {
