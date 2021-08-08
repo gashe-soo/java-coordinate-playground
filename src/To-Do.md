@@ -16,7 +16,7 @@
         - [ ] 그 외는 "지원하지 않는 도형입니다."를 출력한다.
     
 - 도메인
-    - [ ] 좌표의 범위가 1이상 24이하가 아닐 경우 IllegalArugmentException("범위는 1이상 24이하의 자연수입니다.") 발생
+    - [x] 좌표의 범위가 1이상 24이하가 아닐 경우 IllegalArugmentException("범위는 1이상 24이하의 자연수입니다.") 발생
     - [ ] 좌표가 2개이면서 직선이 아닐 경우 IllegalArugmentException("직선이 아닙니다.") 발생
     - [ ] 좌표가 3개이면서 삼각형이 아닐 경우 IllegalArugmentException("삼각형이 아닙니다.") 발생
     - [ ] 좌표가 4개이면서 사각형이 아닐 경우 IllegalArugmentException("사각형이 아닙니다.") 발생
