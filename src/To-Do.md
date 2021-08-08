@@ -19,7 +19,7 @@
     - [x] 좌표의 범위가 1이상 24이하가 아닐 경우 IllegalArugmentException("범위는 1이상 24이하의 자연수입니다.") 발생
     - [x] 좌표가 2개이면서 직선이 아닐 경우 IllegalArugmentException("직선이 아닙니다.") 발생
     - [x] 좌표가 3개이면서 삼각형이 아닐 경우 IllegalArugmentException("삼각형이 아닙니다.") 발생
-    - [ ] 좌표가 4개이면서 사각형이 아닐 경우 IllegalArugmentException("사각형이 아닙니다.") 발생
+    - [x] 좌표가 4개이면서 사각형이 아닐 경우 IllegalArugmentException("사각형이 아닙니다.") 발생
       -  사각형은 직사각형만 허용한다.
     - [x] 직선일 경우 두 점 사이의 거리를 계산한다.
     - [x] 삼각형일 경우 면적을 계산한다.
