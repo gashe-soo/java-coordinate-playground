@@ -11,7 +11,7 @@ public abstract class Shape {
 
     abstract double area();
 
-    abstract String getInfo();
+    public abstract String getInfo();
 
     List<Point> getPoints() {
         return points;

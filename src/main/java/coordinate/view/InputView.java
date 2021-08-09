@@ -43,7 +43,7 @@ public class InputView {
     }
 
     private static void validateInput(String input) {
-        Pattern pattern = Pattern.compile("(\\([0-9]{1,2},[0-9]{1,2}\\))(-(\\([0-9]{1,2},[0-9]{1,2}\\))){0,3}");
+        Pattern pattern = Pattern.compile("(\\([0-9]{1,2},[0-9]{1,2}\\))(-(\\([0-9]{1,2},[0-9]{1,2}\\))){0,5}");
         Matcher matcher = pattern.matcher(input);
         if (!matcher.matches()) {
             throw new IllegalArgumentException(ERROR_INVALID);

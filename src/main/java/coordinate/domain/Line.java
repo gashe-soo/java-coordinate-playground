@@ -16,7 +16,7 @@ public class Line extends Shape {
     }
 
     @Override
-    String getInfo() {
+    public String getInfo() {
         return "두 점 사이 거리는 " + area();
     }
 

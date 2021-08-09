@@ -53,7 +53,7 @@ public class Rectangle extends Shape {
 
 
     @Override
-    String getInfo() {
-        return null;
+    public String getInfo() {
+        return "사각형 넓이는 "+area();
     }
 }

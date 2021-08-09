@@ -60,7 +60,7 @@ public class Triangle extends Shape {
     }
 
     @Override
-    String getInfo() {
-        return "삼각형의 넓이는 " + area();
+    public String getInfo() {
+        return "삼각형 넓이는 " + area();
     }
 }
